@@ -197,7 +197,7 @@ int pmwormholefilter_insert(PMEMobjpool *pop, TOID(struct pmwormholefilter_root)
                         return false;
                     }
                 }
-                PMWriteTag(pop, p_pmwormholefilter, curr_buck_idx, curr_tag_idx, (tag | (curr_buck_idx - init_buck_idx)));
+                WriteTag(p_pmwormholefilter, curr_buck_idx, curr_tag_idx, (tag | (curr_buck_idx - init_buck_idx)));
                 return true;
             }
         }

@@ -31,9 +31,14 @@ make
 |Counting Quotient Filters (CQF)|Prashant Pandey, Michael A. Bender, Rob Johnson, and Rob Patro. 2017. A General-Purpose Counting Filter: Making Every Bit Count. In Proceedings of International Conference on Management of Data. ACM, 775–787. Implementation: https://github.com/splatlab/cqf|
 |One Hash Blocked Bloom Filters (OHBBF)|Elakkiya Prakasam and Arun Manoharan. 2022. A Cache Efficient One Hashing Blocked Bloom Filter (OHBB) for Random Strings and the K-mer Strings in DNA Sequence. Symmetry 14, 9 (2022), 1–24.|
 |Tagged Cuckoo Filters (TCF)|Kun Huang and Tong Yang. 2021. Tagged Cuckoo Filters. In Proceedings of International Conference on Computer Communications and Networks. IEEE, 1–10.|
-|Vector Quotient Filters (VQF)|Prashant Pandey, Alex Conway, Joe Durie, Michael A. Bender, Martin Farach-Colton, and Rob Johnson. 2021. Vector Quotient Filters: Overcoming the Time/Space Trade-Off in Filter Design. In Proceedings of International Conference on Management of Data. ACM, 1386–1399.|
+|Vector Quotient Filters (VQF)|Prashant Pandey, Alex Conway, Joe Durie, Michael A. Bender, Martin Farach-Colton, and Rob Johnson. 2021. Vector Quotient Filters: Overcoming the Time/Space Trade-Off in Filter Design. In Proceedings of International Conference on Management of Data. ACM, 1386–1399. Implementation: https://github.com/splatlab/vqf|
+|Prefix Filters (PF)|Tomer Even, Guy Even, and Adam Morrison. 2022. Prefix Filter: Practically and Theoretically Better Than Bloom. Proceedings of the VLDB Endowment 15, 7 (2022), 1311–1323. Implementation: https://github.com/TomerEven/Prefix-Filter|
 
+### Leveldb
 
+For the experiment of integrating the Wormhole Filter into LevelDB, we implemented the code in a manner similar to the Bloom Filter `util/bloom.cc` and used the libpmemobj library to allocate the memory space for the Wormhole Filter on PMEM.  
+To more accurately measure the impact of replacing the filter on LevelDB's read performance, we disabled LevelDB's built-in compression and block cache, and implemented direct I/O to eliminate the impact of the file system page cache.  
+Using LevelDB's db_bench `benchmarks/db_bench.cc`, we first inserted 10 million elements and then queried 10 million non-existent elements to measure the read performance under different filter configurations.
 
 ## To generate YCSB workloads
 ```sh
