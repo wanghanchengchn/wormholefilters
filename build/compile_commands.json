@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/WormholeFilter/wormholefilters/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9 -I/home/WormholeFilter/wormholefilters/src -g -mavx2 -std=gnu++11 -o test/CMakeFiles/evaluation.dir/evaluation.cpp.o -c /home/WormholeFilter/wormholefilters/test/evaluation.cpp",
-  "file": "/home/WormholeFilter/wormholefilters/test/evaluation.cpp"
-}
-]
