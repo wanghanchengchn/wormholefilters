@@ -31,7 +31,6 @@ public:
     uint64_t operator()(uint64_t key) const
     {
         return key;
-        // return (add_ + multiply_ * static_cast<decltype(multiply_)>(key)) >> 64;
     }
 };
 
@@ -47,7 +46,6 @@ public:
 
 #define MAX_PROB 16
 
-// #define MOD(idx, num_buckets_) ((idx) & (num_buckets_ - 1))
 #define MOD(idx, num_buckets_) ((idx) % num_buckets_)
 
 #define haszero16(x) (((x)-0x0001000100010001ULL) & (~(x)) & 0x8000800080008000ULL)
@@ -122,7 +120,6 @@ void pmwormholefilter_destroy(PMEMobjpool *pop, TOID(struct pmwormholefilter_roo
 inline uint32_t index_hash(uint32_t hv, uint32_t num_buckets_)
 {
     return hv % num_buckets_;
-    // return hv & (num_buckets_ - 1);
 }
 
 inline uint32_t tag_hash(uint32_t hv)
